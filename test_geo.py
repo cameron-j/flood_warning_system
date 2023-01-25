@@ -1,6 +1,5 @@
 from floodsystem import geo
 from floodsystem.station import MonitoringStation
-import math as maths
 
 def test_stations_by_distance():
     """Test the geo.stations_by_distance() function"""

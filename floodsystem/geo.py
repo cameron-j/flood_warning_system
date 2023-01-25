@@ -6,8 +6,6 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
-import numpy as np
 from haversine import haversine
 
 def stations_by_distance(stations, p):
