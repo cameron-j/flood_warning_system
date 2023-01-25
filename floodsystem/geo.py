@@ -21,3 +21,18 @@ def stations_within_radius(stations, centre, r):
             in_radius.append(station)
     
     return in_radius
+
+def rivers_with_station(stations):
+    """Returns a list of rivers with a monitoring station"""
+    return set(station.river for station in stations)
+
+def stations_by_river(stations):
+    """Returns a dictionary mapping river names to stations on the river"""
+    river_stations = {}
+    for station in stations:
+        try:
+            river_stations[station.river].append(station)
+        except KeyError:
+            river_stations[station.river] = [station]
+    
+    return river_stations
