@@ -5,6 +5,7 @@
 
 from floodsystem.station import MonitoringStation
 from floodsystem import station
+import pytest
 
 test_stations = [
         MonitoringStation("TESTID1", "MEASUREID1", "LABEL1", (52.201720, 0.120078), (0, 1), "RIVER1", "TOWN1", "DATE1"),
@@ -45,3 +46,23 @@ def test_typical_range_consistent():
 def test_inconsistent_typical_range_stations():
     """Tests the inconsistent_typical_range_stations function"""
     assert station.inconsistent_typical_range_stations(test_stations) == test_stations[1:]
+
+def test_private_attributes():
+    """Tests that the attributes of the MonitoringStation class cannot be changed dynamically"""
+    s = test_stations[0]
+    with pytest.raises(AttributeError):
+        s.station_id = "NEWID"
+    with pytest.raises(AttributeError):
+        s.measure_id = "NEWMEASUREID"
+    with pytest.raises(AttributeError):
+        s.name = "NEWLABEL"
+    with pytest.raises(AttributeError):
+        s.coord = (7, 8)
+    with pytest.raises(AttributeError):
+        s.typical_range = (9, 10)
+    with pytest.raises(AttributeError):
+        s.river = "NEWRIVER"
+    with pytest.raises(AttributeError):
+        s.town = "NEWTOWN"
+    with pytest.raises(AttributeError):
+        s.date_opened = "NEWDATE"
