@@ -33,3 +33,8 @@ def test_stations_by_river():
         "RIVER1" : [test_stations[0], test_stations[2]],
         "RIVER2" : [test_stations[1]]
     }
+
+def test_rivers_by_station_number():
+    """Test the geo.rivers_by_station_number function"""
+    assert geo.rivers_by_station_number(test_stations, 2) == [("RIVER1", 2), ("RIVER2", 1)]
+    assert geo.rivers_by_station_number(test_stations, 1) == [("RIVER1", 2)]

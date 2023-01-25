@@ -36,3 +36,13 @@ def stations_by_river(stations):
             river_stations[station.river] = [station]
     
     return river_stations
+
+def rivers_by_station_number(stations, N):
+    """Returns the N rivers with the greatest number of stations sorted by number of stations"""
+    river_stations = stations_by_river(stations)
+
+    river_counts = []
+    for river in river_stations.keys():
+        river_counts.append((river, len(river_stations[river])))
+    
+    return sorted(river_counts, key=lambda x: x[1], reverse=True)[:N]
