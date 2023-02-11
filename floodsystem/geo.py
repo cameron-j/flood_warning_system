@@ -11,7 +11,8 @@ from haversine import haversine
 
 def stations_by_distance(stations, p):
     """Sorts the stations by distance from p"""
-    return sorted(stations, key=lambda s: haversine(p, s.coord))
+    distances = [(station, haversine(p, station.coord)) for station in stations]
+    return sorted(distances, key=lambda s: s[1])
 
 def stations_within_radius(stations, centre, r):
     """Returns a list of monitoring stations within a radius r (km) of centre"""
