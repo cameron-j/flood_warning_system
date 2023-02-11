@@ -2,9 +2,9 @@ from floodsystem import geo
 from floodsystem.station import MonitoringStation
 
 test_stations = [
-        MonitoringStation("TESTID1", "MEASUREID1", "LABEL1", (52.201720, 0.120078), (0, 1), "RIVER1", "TOWN1"),
-        MonitoringStation("TESTID2", "MEASUREID2", "LABEL2", (54.484128, -1.804514), (0, 1), "RIVER2", "TOWN2"),
-        MonitoringStation("TESTID3", "MEASUREID3", "LABEL3", (52.429970, -0.917557), (0, 1), "RIVER1", "TOWN3")
+        MonitoringStation("TESTID1", "MEASUREID1", "LABEL1", (52.201720, 0.120078), (0, 1), "RIVER1", "TOWN1", "DATE1"),
+        MonitoringStation("TESTID2", "MEASUREID2", "LABEL2", (54.484128, -1.804514), (0, 1), "RIVER2", "TOWN2", "DATE2"),
+        MonitoringStation("TESTID3", "MEASUREID3", "LABEL3", (52.429970, -0.917557), (0, 1), "RIVER1", "TOWN3", "DATE3")
     ]
 
 def test_stations_by_distance():

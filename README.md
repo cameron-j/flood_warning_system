@@ -9,3 +9,8 @@ to start the activity.
 
 REQUIRED LIBRARIES
 - haversine
+- requests
+- plotly
+- numpy
+- pytest
+- dateutils

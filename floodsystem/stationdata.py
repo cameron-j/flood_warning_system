@@ -53,7 +53,8 @@ def build_station_list(use_cache=True):
                 coord=(float(e['lat']), float(e['long'])),
                 typical_range=typical_range,
                 river=river,
-                town=town)
+                town=town,
+                date_opened=e['dateOpened'])
             stations.append(s)
         except Exception:
             # Not all required data on the station was available, so
