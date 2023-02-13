@@ -13,6 +13,8 @@ test_stations = [
         MonitoringStation("TESTID3", "MEASUREID3", "LABEL3", (52.429970, -0.917557), (2, 1), "RIVER1", "TOWN3", "DATE3")
     ]
 
+test_stations[0].latest_level = 0.2
+
 def test_create_monitoring_station():
 
     # Create a station
@@ -66,3 +68,9 @@ def test_private_attributes():
         s.town = "NEWTOWN"
     with pytest.raises(AttributeError):
         s.date_opened = "NEWDATE"
+
+def test_relative_water_level():
+    """Tests the calculation of relative water level"""
+    assert test_stations[0].relative_water_level() == 0.2
+    assert test_stations[1].relative_water_level() is None
+    assert test_stations[2].relative_water_level() is None
