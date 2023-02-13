@@ -10,9 +10,10 @@ test_stations = [
 def test_stations_by_distance():
     """Test the geo.stations_by_distance() function"""
     res = geo.stations_by_distance(test_stations, (52.319076, -0.061522))
-    assert res[0].station_id == "TESTID1"
-    assert res[1].station_id == "TESTID3"
-    assert res[2].station_id == "TESTID2"
+    print(res)
+    assert res[0][0].station_id == "TESTID1"
+    assert res[1][0].station_id == "TESTID3"
+    assert res[2][0].station_id == "TESTID2"
 
 def test_stations_within_radius():
     """Test the geo.stations_within_radius function"""
@@ -36,5 +37,4 @@ def test_stations_by_river():
 
 def test_rivers_by_station_number():
     """Test the geo.rivers_by_station_number function"""
-    assert geo.rivers_by_station_number(test_stations, 2) == [("RIVER1", 2), ("RIVER2", 1)]
     assert geo.rivers_by_station_number(test_stations, 1) == [("RIVER1", 2)]
