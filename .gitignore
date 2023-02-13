@@ -9,4 +9,6 @@ __pycache__/
 
 .vscode/
 
+.env/
+
 .vs/
