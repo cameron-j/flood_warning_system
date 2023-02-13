@@ -15,3 +15,7 @@ def test_stations_level_over_threshold():
     test_stations[2].latest_level = 3.5
     print(flood.stations_level_over_threshold(test_stations, 0.6))
     assert flood.stations_level_over_threshold(test_stations, 0.6) == [(test_stations[0], pytest.approx(0.9)), (test_stations[1], pytest.approx(0.7))]
+
+def test_stations_highest_rel_level():
+    assert flood.stations_highest_rel_level(test_stations, 1) == [test_stations[0]]
+    assert flood.stations_highest_rel_level(test_stations, 2) == [test_stations[0], test_stations[1]]
